@@ -11,7 +11,6 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-      
       }
       body {
         background-color: white;
@@ -21,6 +20,57 @@
         overflow-y: auto; /* Cho phép scroll nội dung */
         height: calc(100vh - 66px); /* Chiều cao viewport trừ top bar */
       }
+      @media (min-width: 318px) and (max-width: 360px) {
+        .custom-width {
+          width: 292px;
+        }
+      }
+      @media (min-width: 360px) and (max-width: 390px) {
+        .custom-width {
+          width: 340px;
+        }
+      }
+      @media (min-width: 390px) and (max-width: 400px) {
+        .custom-width {
+          width: 358px;
+        }
+      }
+      @media (min-width: 410px) and (max-width: 450px) {
+        .custom-width {
+          width: 380px;
+        }
+      }
+      @media (min-width: 420px) and (max-width: 450px) {
+        .custom-width {
+          width: 398px;
+        }
+      }
+
+      @media (min-width: 318px) and (max-width: 360px) {
+        .custom-width2 {
+          width: 292px;
+        }
+      }
+      @media (min-width: 360px) and (max-width: 390px) {
+        .custom-width2 {
+          width: 340px;
+        }
+      }
+      @media (min-width: 390px) and (max-width: 400px) {
+        .custom-width2 {
+          width: 358px;
+        }
+      }
+      @media (min-width: 410px) and (max-width: 450px) {
+        .custom-width2 {
+          width: 380px;
+        }
+      }
+      @media (min-width: 420px) and (max-width: 450px) {
+        .custom-width2 {
+          width: 398px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -29,15 +79,32 @@
       <div class="relative">
         <!-- Mobile menu button side bar -->
         <div class="md:hidden flex items-center fixed top-4 left-4 z-50">
-          <button id="menu-toggle" class="p-2 rounded-md bg-gray-200 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <button
+            id="menu-toggle"
+            class="p-2 rounded-md bg-gray-200 flex items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </div>
-        
+
         <!-- Sidebar -->
-        <div id="sidebar" class="w-56 bg-[#FAFAFA] text-black fixed h-full hidden md:block transform -translate-x-full md:translate-x-0 transition-transform duration-200 z-40">
+        <div
+          id="sidebar"
+          class="w-56 bg-[#FAFAFA] text-black fixed h-full hidden md:block transform -translate-x-full md:translate-x-0 transition-transform duration-200 z-40"
+        >
           <div class="border-b border-gray-200 pb-4 pt-6">
             <img
               src="src/icons/Group.png"
@@ -47,7 +114,7 @@
           <div class="mt-6">
             <ul class="space-y-2">
               <li
-                class="h-[38px] flex items-center hover:bg-gray-200 px-3 pl-8 transition-colors duration-200 "
+                class="h-[38px] flex items-center hover:bg-gray-200 px-3 pl-8 transition-colors duration-200"
               >
                 <img src="src/icons/_icon/dashboard.png" class="w-4 h-4 mr-3" />
                 <a href="#" class="text-gray-800">Dashboard</a>
@@ -59,7 +126,10 @@
                   src="src/icons/_icon/navigation.png"
                   class="w-2 h-3 mr-3 -ml-5"
                 />
-                <img src="src/icons/_icon/topsetting.png" class="w-4 h-4 mr-3" />
+                <img
+                  src="src/icons/_icon/topsetting.png"
+                  class="w-4 h-4 mr-3"
+                />
                 <a href="#" class="text-gray-800">Accounts</a>
               </li>
               <li
@@ -84,61 +154,77 @@
             </ul>
           </div>
         </div>
-      
+
         <!-- Overlay (visible on mobile when sidebar is open) -->
-        <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-30"></div>
+        <div
+          id="overlay"
+          class="hidden fixed inset-0 bg-black bg-opacity-50 z-30"
+        ></div>
       </div>
 
       <!-- Main content (chứa cả top bar + nội dung) -->
-      <div class="flex flex-col flex-grow md:ml-56"> <!-- Thêm margin-left bằng chiều rộng sidebar chỉ trên tablet -->
+      <div class="flex flex-col flex-grow md:ml-56">
+        <!-- Thêm margin-left bằng chiều rộng sidebar chỉ trên tablet -->
         <!-- Top bar - cố định -->
         <div
-          class="h-[66px] bg-white shadow px-8 flex items-center justify-between border-b border-gray-200 fixed w-full md:w-[calc(100%-14rem)] z-10"
+          class="h-[66px] bg-white shadow px-6 sm:px-7 md:px-8 flex items-center justify-between border-b border-gray-200 fixed w-full md:w-[calc(100%-14rem)] z-10"
         >
-        <div class="px-9 md:px-0"> <!-- Áp dụng padding ở mobile & tablet -->
-          <div class="relative w-[240px]">
-            <!-- Icon tìm kiếm -->
-            <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
-              <img src="src/icons/_icon/search.png" class="w-[18px] h-[18px] sm:w-[12px] sm:h-[12px]" />
-            </span>
-            <input
-              type="text"
-              class=" w-full max-w-[120px] sm:max-w-[200px] h-[34px] rounded-full border border-gray-300 py-2 pl-10 sm:pl-6 pr-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="Search here..."
-            />
+          <div class="px-9 md:px-0">
+            <!-- Áp dụng padding ở mobile & tablet -->
+            <div class="relative w-[240px]">
+              <!-- Icon tìm kiếm -->
+              <span
+                class="absolute inset-y-0 left-3 flex items-center text-gray-400"
+              >
+                <img
+                  src="src/icons/_icon/search.png"
+                  class="w-[18px] h-[18px] sm:w-[12px] sm:h-[12px]"
+                />
+              </span>
+              <input
+                type="text"
+                class="max-w-[100px] sm:max-w-[155px] md:max-w-full h-[34px] rounded-full border border-gray-300 py-2 pl-8 md:pl-10 pr-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="Search here..."
+              />
+            </div>
           </div>
-      </div>
           <!-- Các icon / avatar bên phải -->
-          <div class="flex items-center space-x-3 absolute right-4 md:relative md:right-0">
-          <img src="src/icons/_icon/Help.png" class="w-[18px] md:w-[21px]" />
-          <!-- Setting -->
-          <img src="src/icons/_icon/topsetting.png" class="w-[18px] md:w-[20px]" />
-          <!-- Notification -->
-          <div class="relative">
-            <img src="src/icons/_icon/notification.png" class="w-[20px] md:w-[24px]" />
-            <span
-              class="absolute -top-1 -right-1 inline-flex h-3 w-3 md:h-4 md:w-4 items-center justify-center rounded-full bg-red-500 text-white text-[10px] md:text-xs font-medium ring-2 ring-white"
-            >
-              9
-            </span>
-          </div>
-          <!-- Avatar -->
           <div
-            class="w-[32px] h-[32px] md:w-[40px] md:h-[40px] bg-blue-700 text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold cursor-pointer hover:bg-blue-800"
+            class="flex items-center space-x-3 absolute right-4 md:relative md:right-0"
           >
-            DD
+            <img src="src/icons/_icon/Help.png" class="w-[18px] md:w-[21px]" />
+            <!-- Setting -->
+            <img
+              src="src/icons/_icon/topsetting.png"
+              class="w-[18px] md:w-[20px]"
+            />
+            <!-- Notification -->
+            <div class="relative">
+              <img
+                src="src/icons/_icon/notification.png"
+                class="w-[20px] md:w-[24px]"
+              />
+              <span
+                class="absolute -top-1 -right-1 inline-flex h-3 w-3 md:h-4 md:w-4 items-center justify-center rounded-full bg-red-500 text-white text-[10px] md:text-xs font-medium ring-2 ring-white"
+              >
+                9
+              </span>
+            </div>
+            <!-- Avatar -->
+            <div
+              class="w-[32px] h-[32px] md:w-[40px] md:h-[40px] bg-blue-700 text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold cursor-pointer hover:bg-blue-800"
+            >
+              DD
+            </div>
           </div>
-        </div>
-        
         </div>
         <!-- Khu vực content - có thể scroll -->
-        <div class="content-container px-6 py-4 bg-white mt-[66px]">
-           
+        <div class="content-container md:px-6 py-4 px-2 bg-white mt-[66px]">
           <div class="bg-white-200 mb-[120px]">
             <!--/* Import tax files */-->
-            <div class="import_tax w-full md:w-[50%] bg-white">
+            <div class="import_tax lg:w-[50%] md:w-[70%] sm:w-[100%] bg-white">
               <h1 class="mb-[0.3rem] text-2xl">Import Tax Files</h1>
-              <div class="flex justify-end ">
+              <div class="flex justify-end">
                 <button
                   type="button"
                   class="w-[58px] h-[28px] bg-white rounded-lg border border-gray-200 hover:bg-gray-50"
@@ -147,7 +233,9 @@
                 </button>
               </div>
               <!-- 2 select box -->
-              <div class="flex flex-col md:flex-row justify-between mb-4 pl-2 gap-4 md:gap-0">
+              <div
+                class="flex flex-col md:flex-row justify-between mb-4 md:pl-2 sm:pl-[-2] gap-4 md:gap-0"
+              >
                 <!-- Thêm margin-bottom -->
                 <div class="w-full md:w-[48%]">
                   <p class="text-sm font-medium text-gray-700 mb-1">
@@ -172,7 +260,7 @@
 
               <!-- File upload container (nằm ngay dưới select) -->
               <div
-                class="w-full h-[326px] rounded-lg mt-4 ml-2 border-2 border-dashed border-gray-300"
+                class="w-full h-[326px] rounded-lg mt-4 md:ml-2 sm:ml-0 md:pl-2 sm:pl-[-2] border-2 border-dashed border-gray-300"
               >
                 <!-- Thêm nội dung upload tại đây -->
                 <div class="">
@@ -280,233 +368,268 @@
               </div>
             </div>
             <!--/* Tax Form Processing */-->
-            <div class="tax_processing mt-4 mr-4">
-              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3 gap-2">
-                <!-- Thêm justify-between -->
+            <div class="tax_processing mt-4 mr-4 w-[100%]">
+              <div
+                class="flex flex-col lg:flex-row lg:items-center lg:justify-between md:flex-column flex-comlumn mb-3 gap-2"
+              >
                 <h1 class="text-2xl">Tax Form Processing</h1>
-                <!-- Select box bên trái -->
-                <div class="relative w-full md:w-[171px]">
+                <div class="relative w-[171px] md:w-[171px] sm:w-[120px]">
                   <select
-                    class="w-full appearance-none font-medium rounded-lg bg-blue-800 text-white p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                    <option>Manage Selected</option>
-                  </select>
-                  <img
-                  src="src/icons/_icon/dropdown.png"
-                  class="h-[-7rem] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
-                />
-                </div>
-              </div>
-              <!--/* processing table */-->
-              <div>
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg overflow-visible">
-                  <table class="w-full text-sm text-left text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                      <tr>
-                        <th scope="col" class="p-4">
-                          <div class="flex items-center">
-                            <input
-                              id="checkbox-all-search"
-                              type="checkbox"
-                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
-                            />
-                            <label for="checkbox-all-search" class="sr-only"
-                              >checkbox</label
-                            >
-                          </div>
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-[#6B7280]">FILE NAME</th>
-                        <th scope="col" class="px-6 py-3 text-[#6B7280]">DATE</th>
-                        <th scope="col" class="px-6 py-3 text-[#6B7280]">UPLOAD BY</th>
-                        <th scope="col" class="px-6 py-3 text-[#6B7280]">STATUS</th>
-                        <th scope="col" class="px-6 py-3 text-[#6B7280]"></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr
-                        class="bg-white border-b border-gray-200 hover:bg-gray-50"
-                      >
-                        <td class="w-4 p-4">
-                          <div class="flex items-center">
-                            <input
-                              id="checkbox-table-search-1"
-                              type="checkbox"
-                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
-                            />
-                            <label for="checkbox-table-search-1" class="sr-only"
-                              >checkbox</label
-                            >
-                          </div>
-                        </td>
-                        <td
-                          scope="row"
-                          class="px-6 py-4  whitespace-nowrap"
-                        >
-                          1120_Taxi_Co_23343433_2024.pdf
-                        </td>
-                        <td class="px-6 py-4">1/12/2025 3:23pm</td>
-                        <td class="px-6 py-4">Tax Agent</td>
-                        <td class="flex items-center px-6 py-4">Processing <img
-                        src="src/icons/_icon/Ellipse 2.png"
-                        class=" ml-2"
-                      /></td>
-                      <td class="px-6 py-4 relative group">
-                        <!-- Icon button -->
-                        <img
-                          src="src/icons/_icon/Icon Button.png"
-                          class=" ml-2 cursor-pointer"
-                        />
-
-                        <!-- Popup -->
-                        <div
-                          class="absolute top-full left-[-106px]  w-[152px] h-[146px] bg-white rounded-lg shadow-xl border border-gray-200 z-1000 hidden group-hover:block"
-                        >
-                          <ul class="text-sm text-gray-700">
-                            <li class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                              <span class="mr-2"><img src="src/icons/_icon/view.png"/></span> View
-                            </li>
-                            <li class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                              <span class="mr-2"><img src="src/icons/_icon/edit.png"/></span> Edit
-                            </li>
-                            <li class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer text-green-600">
-                              <span class="mr-2"><img src="src/icons/_icon/check.png"/></span> Send to Client
-                            </li>
-                            <li class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-500">
-                              <span class="mr-2"><img src="src/icons/_icon/remove.png"/></span> Remove
-                            </li>
-                          </ul>
-                        </div>
-                      </td>   
-                      </tr>
-                      <tr
-                        class="bg-white border-b border-gray-200 hover:bg-gray-50"
-                      >
-                        <td class="w-4 p-4">
-                          <div class="flex items-center">
-                            <input
-                              id="checkbox-table-search-1"
-                              type="checkbox"
-                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
-                            />
-                            <label for="checkbox-table-search-1" class="sr-only"
-                              >checkbox</label
-                            >
-                          </div>
-                        </td>
-                        <td
-                          scope="row"
-                          class="px-6 py-4  whitespace-nowrap"
-                        >
-                          1120W_Taxi_Co_23343433_2024.pdf
-                        </td>
-                        <td class="px-6 py-4">1/12/2025 3:23pm</td>
-                        <td class="px-6 py-4">Tax Agent</td>
-                        <td class="flex items-center px-6 py-4">In Review <img
-                        src="src/icons/_icon/Circleinfo.png"
-                        class="ml-2"
-                      /></td>
-                      <td class="px-6 py-4"><img  src="src/icons/_icon/Icon Button.png"
-                      class=" ml-2"/></td>
-                      </tr>
-                      <tr
-                        class="bg-white border-b border-gray-200 hover:bg-gray-50"
-                      >
-                        <td class="w-4 p-4">
-                          <div class="flex items-center">
-                            <input
-                              id="checkbox-table-search-1"
-                              type="checkbox"
-                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
-                            />
-                            <label for="checkbox-table-search-1" class="sr-only"
-                              >checkbox</label
-                            >
-                          </div>
-                        </td>
-                        <td
-                          scope="row"
-                          class="px-6 py-4  whitespace-nowrap"
-                        >
-                          1120W_Taxi_Co_23343433_2024.pdf
-                        </td>
-                        <td class="px-6 py-4">1/12/2025 3:23pm</td>
-                        <td class="px-6 py-4">Tax Agent</td>
-                        <td class="flex items-center px-6 py-4">
-                          Ready for Client
-                          <img
-                            src="src/icons/_icon/Check.png"
-                            class=" ml-2"
-                          />
-                        </td>
-                        <td class="px-6 py-4"><img  src="src/icons/_icon/Icon Button.png"
-                         class="ml-2"/></td>
-                      </tr>
-                      <tr
-                        class="bg-white border-b border-gray-200 hover:bg-gray-50"
-                      >
-                        <td class="w-4 p-4">
-                          <div class="flex items-center">
-                            <input
-                              id="checkbox-table-search-1"
-                              type="checkbox"
-                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
-                            />
-                            <label for="checkbox-table-search-1" class="sr-only"
-                              >checkbox</label
-                            >
-                          </div>
-                        </td>
-                        <td
-                          scope="row"
-                          class="px-6 py-4  whitespace-nowrap"
-                        >
-                          1040_John_Stevens_2024.pdf
-                        </td>
-                        <td class="px-6 py-4">1/12/2025 3:23pm</td>
-                        <td class="px-6 py-4">Tax Agent</td>
-                        <td class="flex items-center px-6 py-4">In Review <img
-                        src="src/icons/_icon/Circleinfo.png"
-                        class="ml-2"
-                      /></td>
-                        <td class="px-6 py-4"><img  src="src/icons/_icon/Icon Button.png"
-                        class="ml-2"/></td>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-            <!--/*  */-->
-            <div class="tax_processing mt-[44px] mr-4">
-              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3 gap-2">
-                <!-- Thêm justify-between -->
-                <h1 class="text-2xl">Tax Entitssies</h1>
-                <!-- Select box bên trái -->
-                <div class="flex flex-col md:flex-row gap-2">
-                <button class="flex items-center gap-2 px-2 py-2 mr-2 border border-gray-300 rounded-md text-gray-600 hover:bg-gray-100">
-                    <img src="src/icons/_icon/filters.png" />
-                    <span>Filters</span>
-                  </button>
-
-                  <div class="relative w-full md:w-[171px]">
-                  <select
-                    class="appearance-none w-full font-medium rounded-lg bg-blue-800 text-white p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-[171px] appearance-none font-medium rounded-lg bg-blue-800 text-white p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option>Manage Selected</option>
                   </select>
                   <img
                     src="src/icons/_icon/dropdown.png"
-                    class="h-[-7rem] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                    class="sm:h-[-7rem] h-[-4rem] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
                   />
                 </div>
+              </div>
+              <div class="table-none md:table-fixed sm:table-fixed">
+                <div
+                  class="custom-width relative md:w-[70%] lg:w-full overflow-x-auto overflow-x-scroll scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 scrollbar-track-gray-100 shadow-md sm:rounded-lg"
+                >
+                  <table
+                    class="w-full min-w-[1000px] text-sm text-left text-gray-500"
+                  >
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                      <tr>
+                        <th scope="col" class="p-4">
+                          <div class="flex items-center">
+                            <input
+                              id="checkbox-all-sear2"
+                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
+                            />
+                            <label for="checkbox-all-search" class="sr-only"
+                              >checkbox</label
+                            >
+                          </div>
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-[#6B7280]">
+                          FILE NAME
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-[#6B7280]">
+                          DATE
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-[#6B7280]">
+                          UPLOAD BY
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-[#6B7280]">
+                          STATUS
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-[#6B7280]"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        class="bg-white border-b border-gray-200 hover:bg-gray-50"
+                      >
+                        <td class="w-4 p-4">
+                          <div class="flex items-center">
+                            <input
+                              id="checkbox-table-search-1"
+                              type="checkbox"
+                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
+                            />
+                            <label for="checkbox-table-search-1" class="sr-only"
+                              >checkbox</label
+                            >
+                          </div>
+                        </td>
+                        <td scope="row" class="px-6 py-4 whitespace-nowrap">
+                          1120_Taxi_Co_23343433_2024.pdf
+                        </td>
+                        <td class="px-6 py-4">1/12/2025 3:23pm</td>
+                        <td class="px-6 py-4">Tax Agent</td>
+                        <td class="flex items-center px-6 py-4">
+                          Processing
+                          <img
+                            src="src/icons/_icon/Ellipse 2.png"
+                            class="w-5 h-5 ml-2"
+                          />
+                        </td>
+                        <td class="px-2 py-2 relative group">
+                          <img
+                            src="src/icons/_icon/Icon Button.png"
+                            class="w-5 h-5 ml-2 cursor-pointer"
+                          />
+                          <div
+                            class="absolute top-full left-[-106px] w-[152px] h-[146px] bg-white rounded-lg shadow-xl border border-gray-200 z-1000 hidden group-hover:block"
+                          >
+                            <ul class="text-sm text-gray-700">
+                              <li
+                                class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                              >
+                                <span class="mr-2"
+                                  ><img src="src/icons/_icon/view.png"
+                                /></span>
+                                View
+                              </li>
+                              <li
+                                class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                              >
+                                <span class="mr-2"
+                                  ><img src="src/icons/_icon/edit.png"
+                                /></span>
+                                Edit
+                              </li>
+                              <li
+                                class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer text-green-600"
+                              >
+                                <span class="mr-2"
+                                  ><img src="src/icons/_icon/check.png"
+                                /></span>
+                                Send to Client
+                              </li>
+                              <li
+                                class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-500"
+                              >
+                                <span class="mr-2"
+                                  ><img src="src/icons/_icon/remove.png"
+                                /></span>
+                                Remove
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class="bg-white border-b border-gray-200 hover:bg-gray-50"
+                      >
+                        <td class="w-4 p-4">
+                          <div class="flex items-center">
+                            <input
+                              id="checkbox-table-search-1"
+                              type="checkbox"
+                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
+                            />
+                            <label for="checkbox-table-search-1" class="sr-only"
+                              >checkbox</label
+                            >
+                          </div>
+                        </td>
+                        <td scope="row" class="px-6 py-4 whitespace-nowrap">
+                          1120W_Taxi_Co_23343433_2024.pdf
+                        </td>
+                        <td class="px-6 py-4">1/12/2025 3:23pm</td>
+                        <td class="px-6 py-4">Tax Agent</td>
+                        <td class="flex items-center px-6 py-4">
+                          In Review
+                          <img
+                            src="src/icons/_icon/Circleinfo.png"
+                            class="ml-2"
+                          />
+                        </td>
+                        <td class="px-2 py-2">
+                          <img
+                            src="src/icons/_icon/Icon Button.png"
+                            class="w-5 h-5 ml-2"
+                          />
+                        </td>
+                      </tr>
+                      <tr
+                        class="bg-white border-b border-gray-200 hover:bg-gray-50"
+                      >
+                        <td class="w-4 p-4">
+                          <div class="flex items-center">
+                            <input
+                              id="checkbox-table-search-1"
+                              type="checkbox"
+                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
+                            />
+                            <label for="checkbox-table-search-1" class="sr-only"
+                              >checkbox</label
+                            >
+                          </div>
+                        </td>
+                        <td scope="row" class="px-6 py-4 whitespace-nowrap">
+                          1120W_Taxi_Co_23343433_2024.pdf
+                        </td>
+                        <td class="px-6 py-4">1/12/2025 3:23pm</td>
+                        <td class="px-6 py-4">Tax Agent</td>
+                        <td class="flex items-center px-6 py-4">
+                          Ready for Client
+                          <img src="src/icons/_icon/Check.png" class="ml-2" />
+                        </td>
+                        <td class="px-2 py-2">
+                          <img
+                            src="src/icons/_icon/Icon Button.png"
+                            class="w-5 h-5 ml-2"
+                          />
+                        </td>
+                      </tr>
+                      <tr
+                        class="bg-white border-b border-gray-200 hover:bg-gray-50"
+                      >
+                        <td class="w-4 p-4">
+                          <div class="flex items-center">
+                            <input
+                              id="checkbox-table-search-1"
+                              type="checkbox"
+                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
+                            />
+                            <label for="checkbox-table-search-1" class="sr-only"
+                              >checkbox</label
+                            >
+                          </div>
+                        </td>
+                        <td scope="row" class="px-6 py-4 whitespace-nowrap">
+                          1040_John_Stevens_2024.pdf
+                        </td>
+                        <td class="px-6 py-4">1/12/2025 3:23pm</td>
+                        <td class="px-6 py-4">Tax Agent</td>
+                        <td class="flex items-center px-6 py-4">
+                          In Review
+                          <img
+                            src="src/icons/_icon/Circleinfo.png"
+                            class="ml-2"
+                          />
+                        </td>
+                        <td class="px-2 py-2">
+                          <img
+                            src="src/icons/_icon/Icon Button.png"
+                            class="w-5 h-5 ml-2"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
-              <!--/* table */-->
-              <!--/* <div>
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                  <table class="w-full text-sm text-left text-gray-500">
+            </div>
+
+            <div class="tax_processing mt-[44px] md:w-[100%]">
+              <div
+                class="flex flex-col sm:flex-col md:flex-col lg:flex-row lg:items-center lg:justify-between mb-3"
+              >
+                <h1 class="text-2xl">Tax Entitssies</h1>
+                <div class="flex flex-col md:flex-row gap-2">
+                  <button
+                    class="flex items-center gap-2 px-2 py-2 mr-2 border border-gray-300 rounded-md text-gray-600 hover:bg-gray-100"
+                  >
+                    <img src="src/icons/_icon/filters.png" />
+                    <span>Filters</span>
+                  </button>
+                  <div class="relative w-full md:w-[171px]">
+                    <select
+                      class="appearance-none w-full font-medium rounded-lg bg-blue-800 text-white p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option>Manage Selected</option>
+                    </select>
+                    <img
+                      src="src/icons/_icon/dropdown.png"
+                      class="h-[-7rem] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="w-full table-none md:table-fixed sm:table-fixed">
+                <div
+                  class="custom-width2 relative overflow-x-auto overflow-x-scroll scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 scrollbar-track-gray-100 md:w-[70%] lg:w-[100%] shadow-md sm:rounded-lg"
+                >
+                  <table
+                    class="w-full min-w-[1000px] text-sm text-left text-gray-500"
+                  >
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                       <tr>
                         <th scope="col" class="p-4">
@@ -521,16 +644,22 @@
                             >
                           </div>
                         </th>
-                        <th scope="col" class="px-6 py-3 text-[#6B7280]">EMAIL</th>
-                        <th scope="col" class="px-6 py-3 text-[#6B7280] ">NAME</th>
-                        <th scope="col" class="px-6 py-3 text-[#6B7280]">FLIES</th>
-                        <th scope="col" class="px-6 py-3 text-[#6B7280]">STATUS</th>
-                        <th scope="col" class="px-6 py-3 text-[#6B7280]"></th>
+                        <th scope="col" class="px-4 py-3 text-[#6B7280]">
+                          EMAIL
+                        </th>
+                        <th scope="col" class="px-4 py-3 text-[#6B7280]">
+                          NAME
+                        </th>
+                        <th scope="col" class="px-4 py-3 text-[#6B7280]">
+                          FILES
+                        </th>
+                        <th scope="col" class="px-4 py-3 text-[#6B7280]">
+                          STATUS
+                        </th>
+                        <th scope="col" class="px-4 py-3 text-[#6B7280]"></th>
                       </tr>
                     </thead>
                     <tbody>
-                     
-                      
                       <tr
                         class="bg-white border-b border-gray-200 hover:bg-gray-50"
                       >
@@ -546,174 +675,97 @@
                             >
                           </div>
                         </td>
-                        <td
-                        
-                          class="px-6 py-4"
-                        >
-                        taxico@email.com
+                        <td class="px-4 py-4 break-all">taxico@email.com</td>
+                        <td class="px-4 py-4">Taxi Co. Inc.</td>
+                        <td class="px-4 py-4">1120, 1120W</td>
+                        <td class="px-4 py-4">
+                          <div
+                            class="inline-flex items-center px-2 py-1 border border-gray-100 bg-gray-100 text-gray-700 rounded-xl text-xs"
+                          >
+                            Ready for Client
+                          </div>
                         </td>
-                        <td class="px-6 py-4">Taxi Co. Inc.</td>
-                        <td class="px-6 py-4">1120, 1120W</td>
-                        <td class="flex items-center px-6 py-4">
-                            <div class="inline-flex items-center px-2 py-1 border border-gray-100 bg-gray-100 text-gray-700 rounded-xl text-xs">
-                              Ready for Client
-                            </div>
+                        <td class="px-4 py-4">
+                          <img
+                            src="src/icons/_icon/Icon Button.png"
+                            class="w-5 h-5 ml-2"
+                          />
                         </td>
-                        <td class="px-6 py-4"><img  src="src/icons/_icon/Icon Button.png"
-                         class="w-5 h-5 ml-2"/></td>
                       </tr>
+
                       <tr
                         class="bg-white border-b border-gray-200 hover:bg-gray-50"
                       >
                         <td class="w-4 p-4">
                           <div class="flex items-center">
                             <input
-                              id="checkbox-table-search-1"
+                              id="checkbox-table-search-2"
                               type="checkbox"
                               class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
                             />
-                            <label for="checkbox-table-search-1" class="sr-only"
+                            <label for="checkbox-table-search-2" class="sr-only"
                               >checkbox</label
                             >
                           </div>
                         </td>
-                        <td
-                          scope="row"
-                          class="px-6 py-4"
-                        >
-                        stevens_family@email.com
+                        <td class="px-4 py-4 break-all">
+                          stevens_family@email.com
                         </td>
-                        <td class="px-6 py-4">John Stevens</td>
-                        <td class="px-6 py-4">1040</td>
-                        <td class="flex items-center px-6 py-4">  
-                          <div class="inline-flex items-center px-2 py-1 border border-gray-100 bg-gray-100 text-gray-700 rounded-xl text-xs">
-                             Ready for Client
+                        <td class="px-4 py-4">John Stevens</td>
+                        <td class="px-4 py-4">1040</td>
+                        <td class="px-4 py-4">
+                          <div
+                            class="inline-flex items-center px-2 py-1 border border-gray-100 bg-gray-100 text-gray-700 rounded-xl text-xs"
+                          >
+                            Ready for Client
                           </div>
-                    </td>
-                        <td class="px-6 py-4"><img  src="src/icons/_icon/Icon Button.png"
-                        class="w-5 h-5 ml-2"/></td>
+                        </td>
+                        <td class="px-4 py-4">
+                          <img
+                            src="src/icons/_icon/Icon Button.png"
+                            class="w-5 h-5 ml-2"
+                          />
                         </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-              </div> */-->
-              <div class="w-full">
-              <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="min-w-[700px] w-full text-sm text-left text-gray-500">
-                  <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                    <tr>
-                      <th scope="col" class="p-4">
-                        <div class="flex items-center">
-                          <input
-                            id="checkbox-all-search"
-                            type="checkbox"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
-                          />
-                          <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                        </div>
-                      </th>
-                      <th scope="col" class="px-4 py-3 text-[#6B7280]">EMAIL</th>
-                      <th scope="col" class="px-4 py-3 text-[#6B7280]">NAME</th>
-                      <th scope="col" class="px-4 py-3 text-[#6B7280]">FILES</th>
-                      <th scope="col" class="px-4 py-3 text-[#6B7280]">STATUS</th>
-                      <th scope="col" class="px-4 py-3 text-[#6B7280]"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
-                      <td class="w-4 p-4">
-                        <div class="flex items-center">
-                          <input
-                            id="checkbox-table-search-1"
-                            type="checkbox"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
-                          />
-                          <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                        </div>
-                      </td>
-                      <td class="px-4 py-4 break-all">taxico@email.com</td>
-                      <td class="px-4 py-4">Taxi Co. Inc.</td>
-                      <td class="px-4 py-4">1120, 1120W</td>
-                      <td class="px-4 py-4">
-                        <div class="inline-flex items-center px-2 py-1 border border-gray-100 bg-gray-100 text-gray-700 rounded-xl text-xs">
-                          Ready for Client
-                        </div>
-                      </td>
-                      <td class="px-4 py-4">
-                        <img src="src/icons/_icon/Icon Button.png" class="w-5 h-5 ml-2" />
-                      </td>
-                    </tr>
-
-                    <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
-                      <td class="w-4 p-4">
-                        <div class="flex items-center">
-                          <input
-                            id="checkbox-table-search-2"
-                            type="checkbox"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 focus:ring-2"
-                          />
-                          <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
-                        </div>
-                      </td>
-                      <td class="px-4 py-4 break-all">stevens_family@email.com</td>
-                      <td class="px-4 py-4">John Stevens</td>
-                      <td class="px-4 py-4">1040</td>
-                      <td class="px-4 py-4">
-                        <div class="inline-flex items-center px-2 py-1 border border-gray-100 bg-gray-100 text-gray-700 rounded-xl text-xs">
-                          Ready for Client
-                        </div>
-                      </td>
-                      <td class="px-4 py-4">
-                        <img src="src/icons/_icon/Icon Button.png" class="w-5 h-5 ml-2" />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
-            </div>
-
-
             </div>
           </div>
 
-        
-          <div class= "bg-white h-[66px] -mx-6 -my-4 border-t border-gray-200">
-              <div class="text-center pt-2">
-                <p>
-                  © Remitian Inc. 2024
-                </p>
-                <p>
-                  Release: release/2.7.1-ea645b
-                </p>
-              </div>
-          </div>
+          <!--/* <div class="bg-white h-[66px] -mx-6 -my-4 border-t border-gray-200">
+            <div class="text-center pt-2">
+              <p>© Remitian Inc. 2024</p>
+              <p>Release: release/2.7.1-ea645b</p>
+            </div>
+          </div> */-->
         </div>
       </div>
     </div>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuToggle = document.getElementById('menu-toggle');
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('overlay');
-      
-      menuToggle.addEventListener('click', function() {
-        sidebar.classList.toggle('hidden');
-        overlay.classList.toggle('hidden');
-        
-        if (!sidebar.classList.contains('hidden')) {
-          sidebar.classList.remove('-translate-x-full');
-        } else {
-          sidebar.classList.add('-translate-x-full');
-        }
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        menuToggle.addEventListener("click", function () {
+          sidebar.classList.toggle("hidden");
+          overlay.classList.toggle("hidden");
+
+          if (!sidebar.classList.contains("hidden")) {
+            sidebar.classList.remove("-translate-x-full");
+          } else {
+            sidebar.classList.add("-translate-x-full");
+          }
+        });
+
+        overlay.addEventListener("click", function () {
+          sidebar.classList.add("hidden");
+          sidebar.classList.add("-translate-x-full");
+          overlay.classList.add("hidden");
+        });
       });
-      
-      overlay.addEventListener('click', function() {
-        sidebar.classList.add('hidden');
-        sidebar.classList.add('-translate-x-full');
-        overlay.classList.add('hidden');
-      });
-    });
-  </script>
+    </script>
   </body>
 </html>
